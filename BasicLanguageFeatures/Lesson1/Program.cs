@@ -1,19 +1,87 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Lesson1
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             
         }
 
+        private static void Program10c()
+        {
+            var list = new List<int>();
+
+            for (var i = 0; i < 4; i++)
+            {
+                Console.WriteLine($"Enter the number no {i + 1}");
+                list.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+
+            var sum = 0;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                sum = sum + list[i];
+            }
+
+            var average = 1.0 * sum / list.Count;
+            Console.WriteLine($"Sum is {sum} and average is {average}");
+
+            Console.WriteLine("Without loops:");    //This is thanks to LINQ (we will discuss LINQ in detail later)
+            Console.WriteLine(list.Sum());
+            Console.WriteLine(list.Average());
+        }
+
+        private static void Program10b()
+        {
+            var myArray = new int[4];
+
+            for (var i = 0; i < myArray.Length; i++)
+            {
+                Console.WriteLine($"Enter the number no {i + 1}");
+                myArray[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            var sum = 0;
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                sum = sum + myArray[i];
+            }
+
+            var average = 1.0 * sum / myArray.Length;
+            Console.WriteLine($"Sum is {sum} and average is {average}");
+
+            Console.WriteLine("Without loops:");    //This is thanks to LINQ (we will discuss LINQ in detail later)
+            Console.WriteLine(myArray.Sum());
+            Console.WriteLine(myArray.Average());
+        }
+
+        private static void Program10a()
+        {
+            //It can be easily  done without introducing so many variables, but this is to show some technical things
+            Console.Write("Enter the first number: ");
+            var a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the second number: ");
+            var b = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the third number: ");
+            var c = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the fourth number: ");
+            var d = Convert.ToInt32(Console.ReadLine());
+
+            var sum = a + b + c + d;
+            var average = sum / 4.0;
+
+            Console.WriteLine($"Sum is {sum} and average is {average}");
+        }
         private static void Program9()
         {
             Console.Write("Enter the temperature in celsius: ");
-
+                
             var celsius = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("In Kelvins: {0}", celsius + 273.15);
