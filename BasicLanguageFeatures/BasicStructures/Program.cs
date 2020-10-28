@@ -7,6 +7,33 @@ namespace BasicStructures
     {
         static void Main(string[] args)
         {
+            var name = "Marcin Jagiela";
+            Console.WriteLine(StringUtils.CountVowels(name));
+        }
+
+        private static void ZipExample()
+        {
+            int[] array1 = {1, 2, 3};
+            int[] array2 = {3, 2, 1, 5};
+
+            foreach (var element in ArrayUtils.Zip(array1, array2))
+            {
+                Console.WriteLine(element);
+            }
+        }
+
+        private static void AccumulateExample()
+        {
+            int[] arr = {1, 5, 9}; // expect 1, 6, 15
+            var result = ArrayUtils.Accumulate(arr);
+            foreach (var element in result)
+            {
+                Console.WriteLine(element);
+            }
+        }
+
+        private static void DiagonalExample()
+        {
             int[,] array = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
             var result = ArrayUtils.Diagonal(array);
 
@@ -14,7 +41,6 @@ namespace BasicStructures
             {
                 Console.WriteLine(element);
             }
-
         }
 
         private static void Round2Example()
