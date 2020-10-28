@@ -7,16 +7,56 @@ namespace BasicStructures
     {
         static void Main(string[] args)
         {
-            //StringsJoiningExample();
+            int[,] array = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            var result = ArrayUtils.Diagonal(array);
 
+            foreach (var element in result)
+            {
+                Console.WriteLine(element);
+            }
+
+        }
+
+        private static void Round2Example()
+        {
+            int[] array = {4, 1, 2, 6, 1};
+            var result = ArrayUtils.Round(array, 1);
+
+            foreach (var element in result)
+            {
+                Console.WriteLine(element);
+            }
+        }
+
+        private static void ReverseAndRoundExample()
+        {
+            int[] myArray = { 5, 8, 9, 1, 10 };
+            ArrayUtils.Reverse1(myArray);
+
+            foreach (var element in myArray)
+            {
+                Console.WriteLine(element);
+            }
+
+            decimal[] arrayOfDecimals = { 1.4M, 5.6M, 10.8M };
+            var result = ArrayUtils.Round(arrayOfDecimals);
+
+            foreach (var element in result)
+            {
+                Console.WriteLine(element);
+            }
+        }
+
+        private static void DivisorAndMultiplierExample()
+        {
             int multiplied = MultiplyForMeBy3(50);
             Console.WriteLine(multiplied);
 
             multiplied = MultiplyForMe(6, 8);
             Console.WriteLine(multiplied);
 
-            Console.WriteLine(GreatestCommonDivisor(16,12));
-            Console.WriteLine(GreatestCommonDivisor(36,48));
+            Console.WriteLine(GreatestCommonDivisor(16, 12));
+            Console.WriteLine(GreatestCommonDivisor(36, 48));
 
             int lcm, gcd;
             DivisorAndMultiplier(6, 9, out gcd, out lcm);
