@@ -6,7 +6,10 @@ namespace BasicStructures
 {
     public static class StringUtils
     {
-        public static int CountVowels(string input) // Military -> Militry -> Militry -> Militry -> Militry -> Mltry -> Mltr
+        public static string Clean(string input) => 
+            string.Join(' ', input.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries));
+
+        public static int CountVowels(string input)
         {
             var temp = input
                 .Replace("a", "")

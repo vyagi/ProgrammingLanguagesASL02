@@ -7,6 +7,11 @@ namespace BasicStructures
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(StringUtils.Clean("      The    lord    of the    rings  "));
+        }
+
+        private static void CountVowelsExample()
+        {
             var name = "Marcin Jagiela";
             Console.WriteLine(StringUtils.CountVowels(name));
         }
