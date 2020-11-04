@@ -9,6 +9,8 @@ namespace ObjectOrientedProgrammingBasics
         private string _color;
         private int _petrolTankCapacity;
         private int _petrolUsagePer100Km;
+        private int _kilometerCounter;
+        private int _petrolLevel;
 
         public string Make => _make;
         public int YearOfProduction => _yearOfProduction;
@@ -16,6 +18,8 @@ namespace ObjectOrientedProgrammingBasics
         public int PetrolTankCapacity => _petrolTankCapacity;
         public int PetrolUsagePer100Km => _petrolUsagePer100Km;
 
+        public int KilometerCounter => _kilometerCounter;
+        public int PetrolLevel => _petrolLevel;
 
         public Car(string make, string color, int yearOfProduction, int petrolTankCapacity, int petrolUsagePer100km)
         {
@@ -40,6 +44,32 @@ namespace ObjectOrientedProgrammingBasics
             _petrolTankCapacity = petrolTankCapacity;
             _petrolUsagePer100Km = petrolUsagePer100km;
         }
+
+        public void Tank(int litres)
+        {
+            if (litres < 0)
+                throw new ArgumentException("Provide a positive value");
+
+            if (_petrolLevel + litres > _petrolTankCapacity)
+                _petrolLevel = _petrolTankCapacity;
+            else
+                _petrolLevel += litres;
+        }
+
+        public void Drive(int kilometers)
+        {
+            var range = _petrolLevel * 100 / _petrolUsagePer100Km;
+            if (kilometers > range)
+            {
+                _kilometerCounter += range;
+                _petrolLevel = 0;
+            }
+            else
+            {
+                _kilometerCounter += kilometers;
+                _petrolLevel -= kilometers * PetrolUsagePer100Km / 100;
+            }
+        }
     }
     
     class Program
@@ -47,8 +77,8 @@ namespace ObjectOrientedProgrammingBasics
         static void Main(string[] args)
         {
             Car car1 = new Car("Ford", "Red", 2019, 60, 6);
-
-            Console.WriteLine($"{car1.Make} was produced in {car1.YearOfProduction}");
+            car1.Tank(30);
+            car1.Drive(250);
 
         }
 
