@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30406.169
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicStructures", "BasicStructures\BasicStructures.csproj", "{E3E869AB-B027-49A1-808A-D0F59C4BBB7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1", "Lesson1\Lesson1.csproj", "{07E78FC4-494A-4545-9CD9-D43B0E0C4FF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1", "Lesson1\Lesson1.csproj", "{07E78FC4-494A-4545-9CD9-D43B0E0C4FF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedProgrammingBasics", "ObjectOrientedProgrammingBasics\ObjectOrientedProgrammingBasics.csproj", "{B666F509-1274-4A38-8504-FBCE41D6D13A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{07E78FC4-494A-4545-9CD9-D43B0E0C4FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07E78FC4-494A-4545-9CD9-D43B0E0C4FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07E78FC4-494A-4545-9CD9-D43B0E0C4FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B666F509-1274-4A38-8504-FBCE41D6D13A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B666F509-1274-4A38-8504-FBCE41D6D13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B666F509-1274-4A38-8504-FBCE41D6D13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B666F509-1274-4A38-8504-FBCE41D6D13A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
