@@ -19,7 +19,7 @@ namespace LinqFeatures
             yield return new PersonalData { Id = 4, BirthDate = new DateTime(1954, 3, 16), City = "Warszawa", Street = "Pusta", House = "11/3" };
             yield return new PersonalData { Id = 5, BirthDate = new DateTime(1987, 11, 10), City = "Gdynia", Street = "Waldowska", House = "11" };
             yield return new PersonalData { Id = 6, BirthDate = new DateTime(1981, 2, 16), City = "Gdynia", Street = "Warszawska", House = "997" };
-            yield return new PersonalData { Id = 7, BirthDate = new DateTime(1995, 12, 21), City = "Krakow", Street = "Pijarska", House = "17A/89" };
+           // yield return new PersonalData { Id = 7, BirthDate = new DateTime(1995, 12, 21), City = "Krakow", Street = "Pijarska", House = "17A/89" };
         }
     }
 }

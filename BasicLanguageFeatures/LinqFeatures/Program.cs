@@ -11,51 +11,102 @@ namespace LinqFeatures
     {
         static void Main(string[] args)
         {
-            int[] measurements = { 5, 24, -12, 34, -1, 8, -21, 100, 200, 14, 36, -48, 60 };
-            string[] names = {"John", "Bob", "Alice", "Donald", "Euzebiusz", ""};
-   
-            // Console.WriteLine(names.Min());
-            // Console.WriteLine(measurements.Min());
+            var employees = Employee.GetEmployees().ToArray();
+            var personalData = PersonalData.GetPersonalData().ToArray();
 
-           // Display(measurements.Where(x => x > 10));
-           // Display(measurements.Where(x => x > 0 && x % 2 == 0));
-           // Display(measurements.OrderByDescending(x => x));
-           // Display(names.OrderBy(x=>x));
-           // Display(names.OrderBy(x=>x.Length));
-           //
-           // Display(names.Where(x=>x.Length > 0).Select(x => x[0]));
-           // Display(names.Select(x => x.Length > 0 ? x[0].ToString() : ""));
-           // Display(names.Select(x => x.FirstOrDefault()));
-           //
-           // Display(names.Skip(2).Take(2));
-           // Console.WriteLine(names.Skip(1).FirstOrDefault());
+            var task1 =
+                from employee in employees
+                orderby employee.BaseSalary descending 
+                where employee.Seniority > 8
+                select new { employee.Age, FullName = $"{employee.FirstName} {employee.LastName}", Position = employee.Role};
 
-           var collection = measurements
-               .Where(x => x % 12 == 0)
-               .OrderBy(x => x)
-               .Select(x => Math.Abs(x));
+            foreach (var employee in task1)
+            {
+                Console.WriteLine(employee.GetType());
+                Console.WriteLine($"{employee.FullName} is {employee.Age} and he is {employee.Position}");
+            }
 
-            Display(collection);
+            var namesAndCities =
+                from emp in employees
+                join workData in personalData on emp.Id equals workData.Id
+                select new { FullName = emp.FirstName+ " " + emp.LastName, workData.City};
 
-            var aenames = names
-                .Where(x => x.StartsWith("A") || x.StartsWith("E"))
-                .OrderByDescending(x => x.Length)
-                .Select(x => x.Last())
-                .Skip(1);
-            Display(aenames);
+            foreach (var nac in namesAndCities)
+            {
+                Console.WriteLine($"{nac.FullName} lives in {nac.City}");
+            }
 
+            var namesAndCitiesFull =
+                from emp in employees
+                join workData in personalData on emp.Id equals workData.Id
+                select new { Person = emp, Data = workData};
 
+            foreach (var nac in namesAndCitiesFull)
+            {
+                Console.WriteLine($"{nac.Person.FirstName} {nac.Person.LastName} lives in {nac.Data.City}");
+            }
 
         }
 
-        public static void Display<T>(IEnumerable<T> collection)
+        public static void OldStuff()
         {
-            foreach (var element in collection)
-            {
-                Console.WriteLine(element);
-            }
+            // var employees = Employee.GetEmployees().ToArray();
+            // var personalData = PersonalData.GetPersonalData().ToArray();
+            //
+            // var task1 = employees.Where(x => x.Seniority > 8);
+            //
+            // var task2 = employees.Where(x => x.Gender == Gender.Woman);
+            //
+            // var task3 = employees.Select(x => x.BaseSalary).Average();
+            //
+            // var avg = employees.Select(y => y.BaseSalary).Average();
+            // var task4 = employees.Where(x => x.BaseSalary > avg);
+            //
+            // var task5 = employees.Where(x => x.Bonus > x.BaseSalary * 0.1M);
+            // foreach (var employee in task5)
+            // {
+            //     Console.WriteLine(employee.FirstName);
+            // }
 
-            Console.WriteLine("------------------------------------");
+            // var groups = employees.GroupBy(x => x.Gender);
+            //
+            // foreach (var group in groups)
+            // {
+            //     Console.WriteLine(group.Key);
+            //     foreach (var employee in group)
+            //     {
+            //         Console.WriteLine("    " + employee.LastName);
+            //     }
+            //
+            //     Console.WriteLine("-------------------");
+            // }
+
+            // var groupsByRole = employees.GroupBy(x => x.Role);
+            //
+            // foreach (var group in groupsByRole)
+            // {
+            //     Console.WriteLine(group.Key);
+            //     foreach (var employee in group)
+            //     {
+            //         Console.WriteLine("    " + employee.FirstName + " " + employee.LastName);
+            //     }
+            //
+            //     Console.WriteLine("-------------------");
+            // }
+
+
+            // var groupsByRole = employees.GroupBy(x => x.Age > 40);
+            //
+            // foreach (var group in groupsByRole)
+            // {
+            //     Console.WriteLine(group.Key);
+            //     foreach (var employee in group)
+            //     {
+            //         Console.WriteLine("    " + employee.FirstName + " " + employee.LastName);
+            //     }
+            //
+            //     Console.WriteLine("-------------------");
+            // }
         }
     }
 }
