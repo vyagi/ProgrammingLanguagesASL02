@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1", "Lesson1\Lesson1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectOrientedProgrammingBasics", "ObjectOrientedProgrammingBasics\ObjectOrientedProgrammingBasics.csproj", "{B666F509-1274-4A38-8504-FBCE41D6D13A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqFeatures", "LinqFeatures\LinqFeatures.csproj", "{3A81BCBB-05C6-4184-8758-8AD4C21BA294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqFeatures", "LinqFeatures\LinqFeatures.csproj", "{3A81BCBB-05C6-4184-8758-8AD4C21BA294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager", "InvoiceManager\InvoiceManager.csproj", "{6F7775AC-0DEA-4AC3-B163-17E042DD4617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3A81BCBB-05C6-4184-8758-8AD4C21BA294}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A81BCBB-05C6-4184-8758-8AD4C21BA294}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A81BCBB-05C6-4184-8758-8AD4C21BA294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F7775AC-0DEA-4AC3-B163-17E042DD4617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F7775AC-0DEA-4AC3-B163-17E042DD4617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F7775AC-0DEA-4AC3-B163-17E042DD4617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F7775AC-0DEA-4AC3-B163-17E042DD4617}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
