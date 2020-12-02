@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -41,7 +42,7 @@ namespace InvoiceManager
                 var split = line.Split('\t');
                 var name = split[0];
                 var date = DateTime.ParseExact(split[1], "yyyy-MM-dd", null);
-                var amount = Convert.ToDecimal(split[2]);
+                var amount = Convert.ToDecimal(split[2].Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)); // 120.21
 
                 var invoice = new Invoice(name, date, amount);
                 invoices.Add(invoice);
@@ -61,6 +62,13 @@ namespace InvoiceManager
                 }
             }
 
+            resultTextBox.Text = "";
+            foreach (var entry in result.OrderBy(x=>x.Key))
+            {
+                resultTextBox.Text += $"{entry.Key}: {entry.Value}\r\n";
+            }
+
+            
         }
     }
 
