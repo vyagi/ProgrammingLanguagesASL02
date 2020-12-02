@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -33,6 +34,32 @@ namespace InvoiceManager
             }
 
             var lines = File.ReadAllLines(path).Skip(1);
+
+            var invoices = new List<Invoice>();
+            foreach (var line in lines)
+            {
+                var split = line.Split('\t');
+                var name = split[0];
+                var date = DateTime.ParseExact(split[1], "yyyy-MM-dd", null);
+                var amount = Convert.ToDecimal(split[2]);
+
+                var invoice = new Invoice(name, date, amount);
+                invoices.Add(invoice);
+            }
+            //Old school way
+            var result = new Dictionary<string, decimal>();
+
+            foreach (var invoice in invoices)
+            {
+                if (!result.ContainsKey(invoice.Name))
+                {
+                    result[invoice.Name] = invoice.Amount;
+                }
+                else
+                {
+                    result[invoice.Name] += invoice.Amount;
+                }
+            }
 
         }
     }
