@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace InvoiceManager
@@ -7,7 +8,17 @@ namespace InvoiceManager
     {
         public Form1() => InitializeComponent();
 
-        private void button1_Click(object sender, EventArgs e) => 
-            checkBox1.Checked = textBox1.Text.Contains(" ");
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var path = pathTextBox.Text;
+
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("File does not exist. Cannot proceed");
+                return;
+            }
+
+            resultTextBox.Text = File.ReadAllText(path);
+        }
     }
 }
