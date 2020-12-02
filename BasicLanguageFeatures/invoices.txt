@@ -1,0 +1,13 @@
+Client	Date	Amount
+John Doe	2020-12-01	1000,02
+Andy Dickens	2020-11-20	500,56
+Ann Shirley	2019-08-08	-400
+Robert Rommel	2019-01-12	300,6
+Andy Dickens	2020-05-13	5000,16
+Andy Dickens	2019-04-13	-300,1288
+Robert Rommel	2020-05-11	412
+Ann Shirley	2019-03-11	378
+Andy Dickens	2020-11-13	400,65
+Arnold Stallone	2018-01-01	-121,11
+Arnold Stallone	2018-01-02	324,1
+Arnold Stallone	2018-01-03	400,12
