@@ -48,27 +48,32 @@ namespace InvoiceManager
                 invoices.Add(invoice);
             }
             //Old school way
-            var result = new Dictionary<string, decimal>();
+            // var result = new Dictionary<string, decimal>();
+            //
+            // foreach (var invoice in invoices)
+            // {
+            //     if (!result.ContainsKey(invoice.Name))
+            //     {
+            //         result[invoice.Name] = invoice.Amount;
+            //     }
+            //     else
+            //     {
+            //         result[invoice.Name] += invoice.Amount;
+            //     }
+            // }
+            //
+            // resultTextBox.Text = "";
+            // foreach (var entry in result.OrderBy(x=>x.Key))
+            // {
+            //     resultTextBox.Text += $"{entry.Key}: {entry.Value}\r\n";
+            // }
 
-            foreach (var invoice in invoices)
-            {
-                if (!result.ContainsKey(invoice.Name))
-                {
-                    result[invoice.Name] = invoice.Amount;
-                }
-                else
-                {
-                    result[invoice.Name] += invoice.Amount;
-                }
-            }
+            //Modern approach:
+            var result = invoices
+                .GroupBy(x => x.Name)
+                .Select(x => $"{x.Key}: {x.Sum(y => y.Amount)}");
 
-            resultTextBox.Text = "";
-            foreach (var entry in result.OrderBy(x=>x.Key))
-            {
-                resultTextBox.Text += $"{entry.Key}: {entry.Value}\r\n";
-            }
-
-            
+            resultTextBox.Text = string.Join("\r\n", result);
         }
     }
 
