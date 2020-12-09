@@ -54,5 +54,48 @@ namespace Geometry.Tests
 
             distance.Should().Be(5);
         }
+
+        [Fact]
+        public void ToString_returns_human_readable_representation()
+        {
+            var point = new Point(-4, 5);
+
+            var text = point.ToString();
+
+            text.Should().Be("(-4,5)");
+        }
+
+        [Fact]
+        public void Reflect_method_returns_proper_result_when_reflecting_along_y()
+        {
+            var point = new Point(-4, 5);
+
+            var reflectedPoint = point.Reflect(Point.ReflectionType.Y);
+
+            reflectedPoint.X.Should().Be(4);
+            reflectedPoint.Y.Should().Be(5);
+        }
+
+        [Fact]
+        public void Reflect_method_returns_proper_result_when_reflecting_along_x()
+        {
+            var point = new Point(-4, 5);
+
+            var reflectedPoint = point.Reflect(Point.ReflectionType.X);
+
+            reflectedPoint.X.Should().Be(-4);
+            reflectedPoint.Y.Should().Be(-5);
+        }
+
+        [Fact]
+        public void Reflect_method_returns_proper_result_when_reflecting_around_origin()
+        {
+            var point = new Point(-4, 5);
+
+            var reflectedPoint = point.Reflect(Point.ReflectionType.Origin);
+
+            reflectedPoint.X.Should().Be(4);
+            reflectedPoint.Y.Should().Be(-5);
+        }
     }
 }
