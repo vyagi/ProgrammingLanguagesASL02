@@ -20,5 +20,9 @@ namespace Geometry
         public Point() : this(1,1) { }
 
         public double Distance() => Math.Sqrt(_x * _x + _y * _y);
+
+        public double Distance(Point point) => Math.Sqrt(Math.Pow(_x - point.X, 2) + Math.Pow(_y - point.Y, 2));
+
+        public static double Distance(Point point1, Point point2) => point1.Distance(point2);
     }
 }
