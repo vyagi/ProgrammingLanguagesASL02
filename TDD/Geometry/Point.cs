@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Geometry
 {
-    // FAIL, PASS, REFACTOR
     public class Point
     {
         private double _x;
