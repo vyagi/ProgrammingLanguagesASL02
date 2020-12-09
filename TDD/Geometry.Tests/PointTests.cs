@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace Geometry.Tests
@@ -11,11 +9,12 @@ namespace Geometry.Tests
         public void Can_create_a_point_with_two_arguments()
         {
             //Arrange
-            var point = new Point(1,3);
-
             //Act
-
+            var point = new Point(1,3);
+            
             //Assert
+            point.X.Should().Be(1);
+            point.Y.Should().Be(3);
         }
     }
 }
