@@ -1,5 +1,8 @@
-﻿namespace Geometry
+﻿using System;
+
+namespace Geometry
 {
+    // FAIL, PASS, REFACTOR
     public class Point
     {
         private double _x;
@@ -13,5 +16,9 @@
             _x = x;
             _y = y;
         }
+
+        public Point() : this(1,1) { }
+
+        public double Distance() => Math.Sqrt(_x * _x + _y * _y);
     }
 }
