@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -45,10 +48,6 @@ namespace MoreAdvancedFeatures
         {
         }
     }
-
-
-
-
 
     public class Lift
     {
@@ -105,6 +104,62 @@ namespace MoreAdvancedFeatures
         }
     }
 
+
+    public class Triple<T> : IEnumerable<T>
+    {
+        public T First { get; private set; }
+        public T Second { get; private set; }
+        public T Third { get; private set; }
+
+        public Triple(T first, T second, T third)
+        {
+            First = first;
+            Second = second;
+            Third = third;
+        }
+
+        public T this[int i]
+        {
+            get => i == 1 ? First : i == 2 ? Second : i == 3 ? Third : throw new IndexOutOfRangeException("i can be 1, 2 or 3");
+            set
+            {
+                switch (i)
+                {
+                    case 1:
+                        First = value;
+                        break;
+                    case 2:
+                        Second = value;
+                        break;
+                    case 3:
+                        Third = value;
+                        break;
+                    default:
+                        throw new IndexOutOfRangeException("i can be 1, 2 or 3");
+                }
+            }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            Console.WriteLine("Now I entered the enumerator");
+            
+            yield return First;
+            
+            Console.WriteLine("I returned the first and I am ready for the second");
+            
+            yield return Second;
+            
+            Console.WriteLine("I returned the second and I am ready for the third");
+
+            yield return Third;
+            
+            Console.WriteLine("I returned the third and I am done");
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+
     class Program
     {
         static float LinearExample(float x) => 2 * x - 1;
@@ -117,7 +172,26 @@ namespace MoreAdvancedFeatures
 
         static void Main(string[] args)
         {
-            
+            var person = new Triple<string>("Marcin","Kowalski", "Junior");
+
+            // for (int i = 1; i <= 3; i++)
+            // {
+            //     Console.WriteLine(person[i]);
+            // }
+            //
+            // person[2] = "Nowak";
+            //
+            // for (int i = 1; i <= 3; i++)
+            // {
+            //     Console.WriteLine(person[i]);
+            // }
+
+            Console.WriteLine("Now enumerable !!!!!!!");
+            foreach (var prop in person.Skip(1))
+            {
+                Console.WriteLine(prop);
+            }
+
 
 
             // var l1 = new Lift();
