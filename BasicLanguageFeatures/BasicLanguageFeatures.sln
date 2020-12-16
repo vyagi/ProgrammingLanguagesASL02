@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqFeatures", "LinqFeature
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager", "InvoiceManager\InvoiceManager.csproj", "{6F7775AC-0DEA-4AC3-B163-17E042DD4617}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreAdvancedFeatures", "MoreAdvancedFeatures\MoreAdvancedFeatures.csproj", "{9726BD2E-46AC-48EB-9FB7-6B47C41D79E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6F7775AC-0DEA-4AC3-B163-17E042DD4617}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F7775AC-0DEA-4AC3-B163-17E042DD4617}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F7775AC-0DEA-4AC3-B163-17E042DD4617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9726BD2E-46AC-48EB-9FB7-6B47C41D79E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9726BD2E-46AC-48EB-9FB7-6B47C41D79E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9726BD2E-46AC-48EB-9FB7-6B47C41D79E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9726BD2E-46AC-48EB-9FB7-6B47C41D79E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
